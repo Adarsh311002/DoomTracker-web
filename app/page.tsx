@@ -7,6 +7,7 @@ import { OpportunityCost } from "@/components/sections/OpportunityCost";
 import { Features } from "@/components/sections/Features";
 import { Goals } from "@/components/sections/Goals";
 import { Trends } from "@/components/sections/Trends";
+import { Privacy } from "@/components/sections/Privacy";
 import { Architecture } from "@/components/sections/Architecture";
 import { HonestLimits } from "@/components/sections/HonestLimits";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -23,6 +24,7 @@ export default function Home() {
         <Features />
         <Goals />
         <Trends />
+        <Privacy />
         <Architecture />
         <HonestLimits />
         <FinalCta />

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Space_Grotesk, Space_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/layout/MotionProvider";
+import { PRODUCT_NAME, SITE } from "@/lib/config";
 import "./globals.css";
 
 const anton = Anton({
@@ -24,8 +25,26 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Doom Tracker",
-  description: "Product website for the Doom Tracker Android app.",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: SITE.title,
+    template: `%s — ${PRODUCT_NAME}`,
+  },
+  description: SITE.description,
+  applicationName: PRODUCT_NAME,
+  openGraph: {
+    type: "website",
+    siteName: PRODUCT_NAME,
+    title: SITE.title,
+    description: SITE.description,
+    url: "/",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+  },
 };
 
 export const viewport: Viewport = {
