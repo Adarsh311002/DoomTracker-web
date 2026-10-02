@@ -2,7 +2,6 @@
 
 import { useEffect, useId, useRef, type KeyboardEvent, type MouseEvent, type RefObject } from "react";
 import { comingSoon } from "@/content/copy";
-import { GITHUB_URL } from "@/lib/config";
 import { Sunburst } from "@/components/ui/Sunburst";
 import { buttonClasses } from "@/components/ui/Button";
 import { Label } from "@/components/ui/Label";
@@ -101,7 +100,6 @@ export function ComingSoonModal({
         <p id={descId} className="text-[15px] leading-relaxed text-ink">
           {comingSoon.body}
         </p>
-        <p className="mt-3 text-[15px] leading-relaxed text-label">{comingSoon.secondary}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <button
             type="button"
@@ -111,14 +109,6 @@ export function ComingSoonModal({
           >
             {comingSoon.close}
           </button>
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonClasses({ variant: "outline", size: "sm" })}
-          >
-            GitHub ↗<span className="sr-only"> (opens in a new tab)</span>
-          </a>
         </div>
       </div>
     </dialog>

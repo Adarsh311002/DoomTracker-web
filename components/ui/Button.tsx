@@ -1,6 +1,3 @@
-import Link from "next/link";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
-
 type Variant = "primary" | "ink" | "outline";
 type Size = "md" | "lg" | "sm";
 
@@ -22,6 +19,7 @@ const SIZES: Record<Size, string> = {
   lg: "h-14 px-7 text-2xl",
 };
 
+/** Class string for the poster-style CTA button: 2px border, hard shadow, mechanical press. */
 export function buttonClasses({
   variant = "primary",
   size = "md",
@@ -40,41 +38,4 @@ export function buttonClasses({
     SIZES[size],
     className,
   ].join(" ");
-}
-
-interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
-  variant?: Variant;
-  size?: Size;
-  onDark?: boolean;
-}
-
-export function Button({ variant, size, onDark, className, type = "button", ...rest }: ButtonProps) {
-  return <button type={type} className={buttonClasses({ variant, size, onDark, className })} {...rest} />;
-}
-
-interface ButtonLinkProps {
-  href: string;
-  children: ReactNode;
-  variant?: Variant;
-  size?: Size;
-  onDark?: boolean;
-  className?: string;
-  external?: boolean;
-}
-
-export function ButtonLink({ href, children, variant, size, onDark, className, external }: ButtonLinkProps) {
-  const classes = buttonClasses({ variant, size, onDark, className });
-  if (external) {
-    return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
-        {children}
-        <span className="sr-only"> (opens in a new tab)</span>
-      </a>
-    );
-  }
-  return (
-    <Link href={href} className={classes}>
-      {children}
-    </Link>
-  );
 }

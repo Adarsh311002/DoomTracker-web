@@ -89,12 +89,14 @@ testimonials.
 - **Coming Soon modal:**
   - Native `<dialog>` + `showModal()` makes the page inert and handles Escape.
   - On top of that: an explicit Tab trap, `aria-modal`, labelled and described-by, backdrop click to close, body scroll lock, and focus restored to the trigger.
+- **No GitHub links:** the site deliberately links to no source repository. Don’t reintroduce one without a decision.
+- **Privacy CTA:** the header carries a dedicated orange Privacy link to `/privacy` on every screen size. It’s a plain `<a>`, so it works without JS.
 - **Play Store launch-day switch:** set `PLAY_STORE_URL` in `lib/config.ts` and every CTA becomes a normal link.
 - **Real device screenshots:** to swap mockups for real screenshots later, replace a `Screen*` child of `PhoneFrame` with a `next/image`. The frame doesn't care what's inside.
 
 ## Open items
 
 - **Production domain:** set `NEXT_PUBLIC_SITE_URL`, or rely on `VERCEL_PROJECT_PRODUCTION_URL` on Vercel. Until then, canonical and OG URLs fall back to localhost.
-- **Privacy contact:** `PRIVACY_CONTACT_EMAIL` is `null`, so `/privacy` points to GitHub issues.
+- **Privacy contact:** `PRIVACY_CONTACT_EMAIL` is `null`, so `/privacy` shows a placeholder line instead of an address.
 - **Privacy review:** `/privacy` is a draft and needs review before launch.
 - **Mockups:** replace with real-device screenshots once end-to-end device testing is done.

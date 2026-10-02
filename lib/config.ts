@@ -9,8 +9,6 @@
  */
 export const PLAY_STORE_URL: string | null = null;
 
-export const GITHUB_URL = "https://github.com/Adarsh311002/DoomTracker";
-
 export const PRODUCT_NAME = "Doom Tracker";
 
 export const PRODUCT_VERSION_LABEL = "V1 · In development";

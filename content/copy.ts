@@ -12,7 +12,6 @@ export const nav = {
   links: [
     { href: "#how-it-works", label: "How it works" },
     { href: "#the-bill", label: "The bill" },
-    { href: "#privacy", label: "Privacy" },
     { href: "#under-the-hood", label: "Under the hood" },
   ],
 };
@@ -23,7 +22,6 @@ export const hero = {
   headlineAccent: "price",
   body: "Doom Tracker tracks the time you lose to doomscrolling on Android, shows you where it went, and prices it against the goals you actually care about. Not a number. A bill.",
   primaryCta: "Get it on Google Play",
-  secondaryCta: "View on GitHub",
   footnote: "Android only · No account · Usage data stays on your phone",
 };
 
@@ -176,7 +174,6 @@ export const privacy = {
   ],
   sees: ["App package name", "Session start time", "Session end time"],
   neverSees: ["Screen content", "Text or messages", "Scroll gestures", "Which video or post"],
-  cta: "Read the privacy policy",
 };
 
 export const architecture = {
@@ -214,7 +211,6 @@ export const architecture = {
     { k: "Domain", v: "Pure functions, unit-tested" },
     { k: "Tests", v: "Vitest · Jest · JUnit + Robolectric" },
   ],
-  cta: "Read the source on GitHub",
 };
 
 export const limits = {
@@ -236,13 +232,12 @@ export const limits = {
 export const finalCta = {
   eyebrow: "Coming soon to Android",
   headline: ["Know the price", "before you scroll."],
-  body: "Doom Tracker V1 is in active development. The source is public — follow along on GitHub.",
+  body: "Doom Tracker V1 is in active development, with real-device testing still to come before release.",
 };
 
 export const comingSoon = {
   title: "Coming soon to Android.",
   body: "Doom Tracker isn’t on Google Play yet. V1 is still in development and real-device testing is underway before any public release.",
-  secondary: "Want to see where it’s at? The full source is on GitHub.",
   close: "Got it",
 };
 

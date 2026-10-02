@@ -1,7 +1,5 @@
 import { hero } from "@/content/copy";
-import { GITHUB_URL } from "@/lib/config";
 import { PlayStoreButton } from "@/components/cta/PlayStoreButton";
-import { ButtonLink } from "@/components/ui/Button";
 import { IllustrativeTag } from "@/components/ui/Badge";
 import { Label } from "@/components/ui/Label";
 import { Sunburst } from "@/components/ui/Sunburst";
@@ -48,9 +46,6 @@ export function Hero() {
 
           <div className="rise mt-9 flex flex-wrap items-center gap-4" style={delay(380)}>
             <PlayStoreButton size="lg" onDark />
-            <ButtonLink href={GITHUB_URL} external variant="outline" onDark size="lg">
-              {hero.secondaryCta}
-            </ButtonLink>
           </div>
           <p className="label mt-7 text-[11px] text-dark-muted">{hero.footnote}</p>
         </div>

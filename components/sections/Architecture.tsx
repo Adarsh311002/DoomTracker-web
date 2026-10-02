@@ -1,6 +1,4 @@
 import { architecture } from "@/content/copy";
-import { GITHUB_URL } from "@/lib/config";
-import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow, Label } from "@/components/ui/Label";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -35,9 +33,6 @@ export function Architecture() {
                 </div>
               ))}
             </dl>
-            <ButtonLink href={GITHUB_URL} external onDark variant="outline" size="md" className="mt-10">
-              {architecture.cta} ↗
-            </ButtonLink>
           </Reveal>
 
           <Reveal delay={0.08}>

@@ -1,5 +1,4 @@
 import { privacy } from "@/content/copy";
-import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow, Label } from "@/components/ui/Label";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -56,12 +55,6 @@ export function Privacy() {
             </Reveal>
           ))}
         </ul>
-
-        <div className="mt-10">
-          <ButtonLink href="/privacy" variant="ink" size="md">
-            {privacy.cta} →
-          </ButtonLink>
-        </div>
       </div>
     </section>
   );

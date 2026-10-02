@@ -1,7 +1,5 @@
 import { finalCta } from "@/content/copy";
-import { GITHUB_URL } from "@/lib/config";
 import { PlayStoreButton } from "@/components/cta/PlayStoreButton";
-import { ButtonLink } from "@/components/ui/Button";
 import { Label } from "@/components/ui/Label";
 import { Sunburst } from "@/components/ui/Sunburst";
 import { Reveal } from "@/components/ui/Reveal";
@@ -25,9 +23,6 @@ export function FinalCta() {
           <p className="mt-6 ml-auto max-w-md text-lg leading-relaxed text-ink">{finalCta.body}</p>
           <div className="mt-10 flex flex-wrap justify-end gap-4">
             <PlayStoreButton variant="ink" onDark size="lg" />
-            <ButtonLink href={GITHUB_URL} external variant="outline" size="lg">
-              GitHub ↗
-            </ButtonLink>
           </div>
         </Reveal>
       </div>

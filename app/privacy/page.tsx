@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Label } from "@/components/ui/Label";
 import { privacyIntro, privacySections } from "@/content/privacy";
-import { GITHUB_URL, PRIVACY_CONTACT_EMAIL, PRIVACY_LAST_UPDATED } from "@/lib/config";
+import { PRIVACY_CONTACT_EMAIL, PRIVACY_LAST_UPDATED } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Privacy policy",
@@ -56,12 +56,8 @@ export default function PrivacyPage() {
             <div className="mb-12 border-2 border-dashed border-ink bg-surface p-5">
               <Label tone="cost">Status</Label>
               <p className="mt-2 text-[15px] leading-relaxed text-ink">
-                Doom Tracker is not yet published on Google Play. This draft describes the V1 build in the{" "}
-                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="underline decoration-cost decoration-2 underline-offset-2">
-                  public source repository
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>{" "}
-                and will be reviewed before public launch.
+                Doom Tracker is not yet published on Google Play. This draft describes the current V1 build and will be
+                reviewed before public launch.
               </p>
             </div>
 
@@ -101,14 +97,7 @@ export default function PrivacyPage() {
                     </a>
                   </>
                 ) : (
-                  <>
-                    A privacy contact address will be added here before public launch. Until then, questions can be raised on the{" "}
-                    <a href={`${GITHUB_URL}/issues`} target="_blank" rel="noopener noreferrer" className="underline decoration-cost decoration-2 underline-offset-2">
-                      project’s GitHub issues
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                    .
-                  </>
+                  "A privacy contact address will be added here before public launch."
                 )}
               </p>
             </section>

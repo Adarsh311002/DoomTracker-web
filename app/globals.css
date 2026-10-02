@@ -36,8 +36,6 @@
   --shadow-hard-cost: 6px 6px 0 0 var(--color-cost);
 
   --ease-snap: cubic-bezier(0.2, 0.9, 0.1, 1);
-
-  --breakpoint-xs: 22.5rem;
 }
 
 @layer base {

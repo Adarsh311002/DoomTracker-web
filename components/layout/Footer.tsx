@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footer } from "@/content/copy";
-import { GITHUB_URL, PRODUCT_VERSION_LABEL } from "@/lib/config";
+import { PRODUCT_VERSION_LABEL } from "@/lib/config";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -22,22 +22,12 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="label text-xs text-dark-body hover:text-cost"
-                >
-                  Source on GitHub ↗<span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
         <div className="mt-12 border-t-2 border-dark-muted/30 pt-6">
           <p className="max-w-3xl text-[13px] leading-relaxed text-dark-muted">{footer.disclaimer}</p>
-          <p className="label mt-4 text-[10px] text-dark-muted">© {new Date().getFullYear()} Doom Tracker · MIT-licensed source</p>
+          <p className="label mt-4 text-[10px] text-dark-muted">© {new Date().getFullYear()} Doom Tracker</p>
         </div>
       </div>
     </footer>
