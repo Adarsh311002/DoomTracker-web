@@ -1,6 +1,167 @@
 @import "tailwindcss";
 
-body {
-  background: #f4f1e8;
-  color: #101010;
+/*
+ * Doom Tracker design tokens — sourced from the mobile app's
+ * src/theme/tokens.ts (sampled from docs/design reference renders).
+ * The site is intentionally light-only: the product identity is a
+ * cream/ink poster palette, and the app itself has no dark theme.
+ */
+@theme {
+  --color-cream: #f4f1e8;
+  --color-surface: #ffffff;
+  --color-ink: #101010;
+  --color-cost: #f5411a;
+  --color-cost-soft: #ec7a5f;
+  /* Darker cost tone for small text on light surfaces (AA contrast). */
+  --color-cost-ink: #c42d0b;
+  --color-protect: #2c93d8;
+  --color-protect-soft: #8bc4ea;
+  --color-protect-fill: #e1f0f9;
+  /* Darker protect tone for small text on light surfaces (AA contrast). */
+  --color-protect-ink: #17689f;
+  --color-muted: #707070;
+  /* Muted tone for small text on cream (AA contrast); #707070 is ~4.4:1 there. */
+  --color-label: #5c5b57;
+  --color-faint: #aaa8a2;
+  --color-dark-body: #c9c9c2;
+  --color-dark-muted: #989791;
+
+  --font-display: var(--font-anton), "Impact", "Arial Narrow", sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-hard: 6px 6px 0 0 var(--color-ink);
+  --shadow-hard-sm: 4px 4px 0 0 var(--color-ink);
+  --shadow-hard-cream: 6px 6px 0 0 var(--color-cream);
+  --shadow-hard-cost: 6px 6px 0 0 var(--color-cost);
+
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.1, 1);
+
+  --breakpoint-xs: 22.5rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-cost);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-protect);
+    outline-offset: 3px;
+  }
+
+  [id] {
+    scroll-margin-top: 72px;
+  }
+}
+
+@layer components {
+  /* Fine page grain: the app's 3dp dot grid, rendered a touch coarser for screens. */
+  .tex-grain {
+    background-image: radial-gradient(circle, rgb(16 16 16 / 0.16) 0.7px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  /* Grain for black panels — the Bill hero's orange dot field. */
+  .tex-grain-dark {
+    background-image: radial-gradient(circle, rgb(245 65 26 / 0.32) 1px, transparent 1.4px);
+    background-size: 9px 9px;
+  }
+
+  /* Faint cream dots for large dark bands. */
+  .tex-grain-dark-soft {
+    background-image: radial-gradient(circle, rgb(244 241 232 / 0.09) 0.8px, transparent 1.2px);
+    background-size: 6px 6px;
+  }
+
+  /* Orange halftone block beside the Today hero: 12dp pitch, 5dp round dots. */
+  .tex-halftone {
+    background-image: radial-gradient(circle, var(--color-cost) 2.6px, transparent 3px);
+    background-size: 12px 12px;
+  }
+
+  /* Cream halftone inside ink chart bars: 6dp pitch, 2dp dots. */
+  .tex-bar {
+    background-color: var(--color-ink);
+    background-image: radial-gradient(circle, var(--color-cream) 1px, transparent 1.3px);
+    background-size: 6px 6px;
+    background-position: 3px 3px;
+  }
+
+  /* Ruled-paper lines used behind editorial blocks. */
+  .tex-ruled {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 31px,
+      rgb(16 16 16 / 0.12) 31px 32px
+    );
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.92;
+    letter-spacing: 0.005em;
+  }
+
+  /* Stacked hard drop on display numerals (the "1:37" offset print). */
+  .print-shadow {
+    text-shadow: 4px 4px 0 var(--color-ink);
+  }
+  .print-shadow-cream {
+    text-shadow: 4px 4px 0 var(--color-cream);
+  }
+
+  /* Mechanical press: shift down/right while the hard shadow collapses. */
+  .press {
+    transition:
+      transform 90ms var(--ease-snap),
+      box-shadow 90ms var(--ease-snap);
+  }
+  .press:hover {
+    transform: translate(-1px, -1px);
+  }
+  .press:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 var(--color-ink) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .press:hover,
+  .press:active {
+    transform: none;
+  }
 }
